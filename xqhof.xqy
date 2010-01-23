@@ -39,7 +39,6 @@ declare function xqhof:fold($f, $z, $l) {
   if(fn:empty($l)) then $z
   else
     xqhof:fold($f,
-      (: dont know how to curry / uncurry with unknown f arity :)
       xdmp:apply($f, $z, xqhof:head($l)),
       xqhof:tail($l)) } ;
 
