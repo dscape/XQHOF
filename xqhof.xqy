@@ -22,8 +22,9 @@ module namespace xqhof = "http://ns.dscape.org/2010/xqhof";
  : The use of the Apache License does not indicate that this project is
  : affiliated with the Apache Software Foundation.
  :)
-declare function xqhof:id($x) { $x } ;
-
+declare function xqhof:id($x)    { $x } ;
+declare function xqhof:fst( $l ) { $l[1] } ;
+declare function xqhof:snd( $l ) { $l[2] } ;
 declare function xqhof:head($l) { $l[1] } ;
 declare function xqhof:tail($l) { fn:subsequence($l, 2) } ;
 declare function xqhof:last($l) { $l[fn:last()] } ;
