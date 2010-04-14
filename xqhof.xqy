@@ -22,10 +22,6 @@ module namespace xqhof = "http://ns.dscape.org/2010/xqhof";
  : The use of the Apache License does not indicate that this project is
  : affiliated with the Apache Software Foundation.
  :)
-
-import module namespace mem = "http://xqdev.com/in-mem-update"
-  at "/MarkLogic/appservices/utils/in-mem-update.xqy" ;
-
 declare function xqhof:id($x) { $x } ;
 
 declare function xqhof:head($l) { $l[1] } ;
