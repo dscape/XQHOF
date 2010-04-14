@@ -75,6 +75,6 @@ declare function xqhof:head-two( $l )   { fn:subsequence( $l, 1, 2 ) } ;
 declare function xqhof:tail-two( $l )   { fn:subsequence( $l, 3 )    } ;
 declare function xqhof:fold2($f, $z, $l) { 
   if( fn:empty( $l ) ) then $z else
-    local:fold2( $f, 
-                xdmp:apply( $f, $z, local:head-two( $l ) ),
-                local:tail-two( $l ) ) } ;
+    xqhof:fold2( $f, 
+                xdmp:apply( $f, $z, xqhof:head-two( $l ) ),
+                xqhof:tail-two( $l ) ) } ;
