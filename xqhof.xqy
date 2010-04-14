@@ -23,6 +23,9 @@ module namespace xqhof = "http://ns.dscape.org/2010/xqhof";
  : affiliated with the Apache Software Foundation.
  :)
 
+import module namespace mem = "http://xqdev.com/in-mem-update"
+  at "/MarkLogic/appservices/utils/in-mem-update.xqy" ;
+
 declare function xqhof:id($x) { $x } ;
 
 declare function xqhof:head($l) { $l[1] } ;
@@ -71,3 +74,11 @@ declare function xqhof:some($f, $l) {
   some $e in $l satisfies xdmp:apply($f, $e) } ;
 
 declare function xqhof:any($f, $l) { xqhof:some($f, $l) } ;
+
+declare function xqhof:head-two( $l )   { fn:subsequence( $l, 1, 2 ) } ;
+declare function xqhof:tail-two( $l )   { fn:subsequence( $l, 3 )    } ;
+declare function xqhof:fold2($f, $z, $l) { 
+  if( fn:empty( $l ) ) then $z else
+    local:fold2( $f, 
+                xdmp:apply( $f, $z, local:head-two( $l ) ),
+                local:tail-two( $l ) ) } ;
